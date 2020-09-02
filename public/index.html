@@ -8,24 +8,50 @@
   <title>No Framework Website</title>
 
   <link rel="stylesheet" href="./assets/styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1>No Framework Website</h1>
+      <h1>Purchase Water Bottles</h1>
     </header>
     <main>
-      <h2>This site rocks 🤘🤘</h2>
-      <div class="bacon">
-        <img src="./assets/images/oval.svg" alt="loading">
-      </div>
+      <ul></ul>
     </main>
-    <footer>
-      <p>Made with ❤️ by <a href="https://twitter.com/_esausilva" target="_blank">Esau Silva</a></p>
-    </footer>
+    <form class='box-shadow' action="submit" onsubmit="handleSubmit(event)">
+      <div class="first-name">
+        <label for="first">First Name</label>
+        <input type="text" name='first'>
+      </div>
+      <div class="last-name">
+        <label for="last">Last Name</label>
+        <input type="text" name='last'>
+      </div>
+      <label for="email">Email Address</label>
+      <input type="text" name='email'>
+      <label for="count">Number Of Packages</label>
+      <select type="text" name='count' onchange="handleChange(event.target.value)">
+        <option value="1">One pagkage</option>
+        <option value="2">Two pagkage</option>
+        <option value="3">Three pagkage</option>
+        <option value="4">Four pagkage</option>
+        <option value="5">Five pagkage</option>
+      </select>
+      <div class="total">Your Total:&nbsp;<span ></span></div>
+      <input type="submit" value='Checkout'>
+    </form>
   </div>
   <script src="./assets/scripts/bundle.js"></script>
+  <div class="modal">
+    <div class='opaque'>
+      <button onclick='closeModal()'>&times</button>
+      <p>
+        John Doe, you have chosen to purchase <span class="chosen-quantity"></span> packages of <span class="product-quantity"></span>.
+      </p>
+      <div>Thank You.</div>
+    </div>
+  </div>
 </body>
 
 </html>

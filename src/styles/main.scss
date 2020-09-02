@@ -1,45 +1,280 @@
 @import 'reset.scss';
 
-.wrapper {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto 1fr auto;
-  line-height: 23px;
-
-  & > * {
-    grid-column: 2 / -2;
-  }
-
-  header {
-    grid-column: 1 / -1;
-    // Photo by Karsten Würth (@inf1783) on Unsplash
-    background: #fdbc9a url('../../public/assets/images/venice-italy.jpg')
-      no-repeat center;
-    background-size: cover;
-    height: 500px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
+.wrapper{
+  margin: 0 auto;
+  h1{
     text-align: center;
-
-    h1 {
-      font-size: 3.5em;
-      text-shadow: -2px -2px 3px rgb(163, 162, 162);
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+    li{
+      position: relative;
+      .title{
+        font-size: 24px;
+      }
+      button{
+        background: none;
+        border: none;
+      }
+      .pill{
+        position: absolute;
+        background: #ffd1d1;
+        display: block;
+        top: -14px;
+        width: 148px;
+        height: 31px;
+        border-radius: 13px;
+        padding: 5px;
+        text-align: center;
+        font-size: 15rem;
+      }
+      &.focus{
+        background: #a98aff;
+      }
     }
   }
-
-  footer {
-    height: 50px;
-    display: flex;
-    justify-content: flex-end;
+  .box-shadow{
+    box-shadow: 0px 2px 5px 2px rgba(150,150,150,1);
+  }
+  form{
+    border-radius: 20px;
+    .total{
+      text-align: center;
+    }
+    label{
+      font-weight: 700;
+    }
+    input[type=submit]{
+      background: #2A218F;
+      border-radius: 25px;
+      color: white;
+      width: 100%;
+      border: none;
+      width: 260px;
+      height: 51px;
+      font-size: 25px;
+      font-weight: 700;
+      margin-bottom: 29px;
+    }
+    .invalid{
+      font-size: 14rem;
+      margin-top: 2px;
+      color: #ed2727;
+    }
+  }
+}
+.modal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0,0,0,0.25);
+  display: none;
+  .opaque{
+    background: white;
+    margin: 0 auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    button{
+      position: absolute;
+      background: none;
+      border: none;
+      font-weight: 700;
+      font-size: 36rem;
+    }
   }
 }
 
-.bacon > img {
-  width: 75px;
-  display: block;
-  margin: auto;
+@media only screen and (min-width: 768px) {
+  .wrapper{
+    width: 1390px;
+    padding: 0 10px;
+    h1{
+      font-size: 36rem;
+      margin-top: 103px;
+    }
+    ul{
+      display: flex;
+      justify-content: space-between;
+      li{
+        width: 25%;
+        margin-top: 88px;
+        height: 266px;
+        border-radius: 27px;
+        padding: 15px;
+        .pill{
+          left: 29%;
+        }
+        .title{
+          margin-top: 16px;
+        }
+        .price{
+          margin-top: 53px;
+          font-weight: 700;
+          font-size: 23rem;
+        }
+        button{
+          font-size: 17rem;
+          margin: 71px 0 0 -6px;
+        }
+      }
+    }
+    form{
+      margin: 120px auto;
+      width: 910px;
+      padding: 15px 0 20px 32px;
+      label{
+        font-size: 18px;
+      }
+      div[class$="-name"]{
+        margin-top: 12px;
+      }
+      .first-name{
+        float: left;
+        width: 57%;
+      }
+      .last-name{
+        float: right;
+        width: 42%;
+      }
+      input{
+        width: 310px;
+        margin-top: 7px;
+        height: 26px;
+      }
+      input[name=email], select{
+        width: 816px;
+      }
+      label{
+        display: block;
+        &[for=email]{
+          margin-top: 96px;
+        }
+        &[for=count]{
+          margin-top: 27px;
+        }
+      }
+      select{
+        margin-top: 7px;
+        height: 26px;
+      }
+      .total{
+        margin-top: 81px;
+        font-size: 25rem;
+        font-weight: 700;
+      }
+      input[type=submit]{
+        margin: 0 auto;
+        margin-top: 22px;
+        display: block;
+        width: 355px;
+      }
+    }
+  }
+  .modal{
+    .opaque{
+      height: 282px;
+      width: 1000px;
+      margin-top: 95px;
+      text-align: center;
+      font-size: 25px;
+      font-weight: 700;
+      button{
+        right: 10px;
+        top: 2px;
+      }
+      p{
+        width: 500px;
+        margin: 50px auto;
+      }
+      div{
+        margin-top: -7px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper{
+    width: 281px;
+    h1{
+      font-size: 24rem;
+      margin-top: 24px;
+    }
+    ul li{
+      height: 265px;
+      margin-top: 37px;
+      margin-bottom: 43px;
+      border-radius: 12%;
+      .pill{
+        left: 65px;
+      }
+      .title{
+        font-weight: 400;
+        padding: 14px;
+      }
+      .price{
+        font-weight: 700;
+        font-size: 23rem;
+        margin: 21px 0 0 13px;
+      }
+      button{
+        margin: 72px 0 0 8px;
+        font-size: 15px;
+      }
+    }
+    form{
+      margin-bottom: 300px;
+      padding: 5px 5px 0 10px;
+      > label, div > label{
+        display: block;
+        width: 100%;
+        font-size: 19rem;
+        margin-top: 26px;
+      }
+      input[type=submit]{
+        width: 260px;
+        margin-bottom: 29px;
+      }
+      input[type=text]{
+        height: 26px;
+        margin-top: 5px;
+        width: 99%;
+      }
+      select{
+        width: 99%;
+        margin-top: 7px;
+        height: 26px;
+      }
+      .total{
+        font-size: 25rem;
+        margin: 60px 0 29px;
+      }
+      .invalid{
+        font-size: 14rem;
+        margin-top: 2px;
+        color: #ed2727;
+      }
+    }
+  }
+  .modal .opaque{
+    width: 89%;
+    margin: auto;
+    height: 235px;
+    font-size: 19rem;
+    font-weight: 700;
+    text-align: center;
+    button{
+      right: 4px;
+    }
+    p{
+      margin-top: 51px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+  }
 }

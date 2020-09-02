@@ -1,9 +1,9 @@
 {
-  "name": "live-reload-vanilla-website-template",
+  "name": "Checkout",
   "version": "1.0.0",
-  "description": "Template to build a website without a front-end framework. Includes transpilation of ES6+ JavaScript and Sass support",
+  "description": "Checkout",
   "main": "main.js",
-  "author": "Esau Silva",
+  "author": "Eyar Gilad",
   "license": "MIT",
   "scripts": {
     "dev:assets": "webpack --watch",
@@ -19,6 +19,7 @@
     "css-loader": "^3.5.1",
     "cssnano": "^4.1.10",
     "file-loader": "^6.0.0",
+    "git-scripts": "^0.4.3",
     "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
@@ -26,21 +27,12 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^8.0.2",
+    "surge": "^0.21.6",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/esausilva/live-reload-vanilla-website-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/esausilva/live-reload-vanilla-website-template/issues"
-  },
-  "keywords": [
-    "JavaScript",
-    "Webpack",
-    "ES6+",
-    "live reload",
-    "Sass"
-  ]
+    "url": "https://github.com/eyar/checkout.git"
+  }
 }
