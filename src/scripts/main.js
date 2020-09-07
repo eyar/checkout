@@ -1,17 +1,18 @@
 const products = [{quantity: '6', price: '2.5'}, {quantity: '12', price: '4.66'}, {quantity: '25', price: '9.00'}];
 let ul = document.querySelector('ul');
 let chosenProduct, chosenQuantity = 1;
+let name;
 
 const getTitle = (quantity) => {
   return `Purchase ${quantity} bottles pack`;
 }
 
 const productsLis = products.map(({quantity, price}, i)=>{
-  const html = `
-  ${price==='4.66' ? '<div class="pill">Best Price</div>' : ''}
-  <div class='title'>${getTitle(quantity)}</div>
-  <div class='price'>$${price}/pack</div>
-  <button>Click to choose</button>
+  const html = /*html*/`
+    ${price==='4.66' ? '<div class="pill">Best Price</div>' : ''}
+    <div class='title'>${getTitle(quantity)}</div>
+    <div class='price'>$${price}/pack</div>
+    <button>Click to choose</button>
   `;
   let li = document.createElement('li');
   li.innerHTML = html;
@@ -31,14 +32,14 @@ const productsLis = products.map(({quantity, price}, i)=>{
   ul.appendChild(li);
 })
 
-window.handleChange = (quantity) => {
-  chosenQuantity = quantity;
+document.querySelector('select').addEventListener('change', ({target:{value}}) => {
+  chosenQuantity = value;
   setTotal()
-}
+});
 
 const setTotal = () => {
   const total = +chosenQuantity * +chosenProduct?.price;
-  document.querySelector('.total span').textContent = isNaN(total) ? 0 : total;
+  document.querySelector('.total span').textContent = isNaN(total) ? '$0' : `$${total}`;
 }
 setTotal();
 
@@ -49,7 +50,7 @@ const warning = (message)=>{
   return div;
 }
 
-window.handleSubmit = (event) => {
+document.querySelector('form').addEventListener('submit', (event) => {
   event.preventDefault();
   const namePattern = /[a-z][A-Z]{2,70}/i;
   const emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -79,17 +80,21 @@ window.handleSubmit = (event) => {
       }
     }
   });
-  if(allowCheckout && chosenProduct) loadModal();
-}
+  if(allowCheckout && chosenProduct){
+    name = `${event.target.first.value} ${event.target.last.value}`
+    loadModal();
+  }
+});
 
 const loadModal = () => {
   let modal = document.querySelector('.modal');
   modal.style.display = 'flex';
   modal.querySelector('.chosen-quantity').textContent = chosenQuantity;
   modal.querySelector('.product-quantity').textContent = getTitle(chosenProduct.quantity);
+  modal.querySelector('.name').textContent = name;
 }
 
-window.closeModal = () => {
+document.querySelector('.modal button').addEventListener('click', () => {
   let modal = document.querySelector('.modal');
   modal.style.display = 'none';
-}
+});

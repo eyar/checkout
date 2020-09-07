@@ -2,6 +2,7 @@
 
 .wrapper{
   margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
   h1{
     text-align: center;
   }
@@ -16,12 +17,18 @@
       button{
         background: none;
         border: none;
+        font-weight: 300;
+        font-family: 'Open Sans', sans-serif;
       }
       .pill{
         position: absolute;
         background: #ffd1d1;
         display: block;
         top: -14px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
         width: 148px;
         height: 31px;
         border-radius: 13px;
@@ -87,9 +94,8 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1075px) {
   .wrapper{
-    width: 1390px;
     padding: 0 10px;
     h1{
       font-size: 36rem;
@@ -99,14 +105,11 @@
       display: flex;
       justify-content: space-between;
       li{
-        width: 25%;
+        width: 350px;
         margin-top: 88px;
         height: 266px;
         border-radius: 27px;
         padding: 15px;
-        .pill{
-          left: 29%;
-        }
         .title{
           margin-top: 16px;
         }
@@ -196,7 +199,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1075px) {
   .wrapper{
     width: 281px;
     h1{
@@ -208,9 +211,6 @@
       margin-top: 37px;
       margin-bottom: 43px;
       border-radius: 12%;
-      .pill{
-        left: 65px;
-      }
       .title{
         font-weight: 400;
         padding: 14px;

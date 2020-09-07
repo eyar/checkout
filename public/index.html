@@ -8,7 +8,7 @@
   <title>Checkout</title>
 
   <link rel="stylesheet" href="./assets/styles/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     <main>
       <ul></ul>
     </main>
-    <form class='box-shadow' action="submit" onsubmit="handleSubmit(event)">
+    <form class='box-shadow' action="submit">
       <div class="first-name">
         <label for="first">First Name</label>
         <input type="text" name='first'>
@@ -31,7 +31,7 @@
       <label for="email">Email Address</label>
       <input type="text" name='email'>
       <label for="count">Number Of Packages</label>
-      <select type="text" name='count' onchange="handleChange(event.target.value)">
+      <select type="text" name='count'>
         <option value="1">One pagkage</option>
         <option value="2">Two pagkage</option>
         <option value="3">Three pagkage</option>
@@ -42,16 +42,16 @@
       <input type="submit" value='Checkout'>
     </form>
   </div>
-  <script src="./assets/scripts/bundle.js"></script>
   <div class="modal">
     <div class='opaque'>
-      <button onclick='closeModal()'>&times</button>
+      <button>&times</button>
       <p>
-        John Doe, you have chosen to purchase <span class="chosen-quantity"></span> packages of <span class="product-quantity"></span>.
+        <span class="name"></span>, you have chosen to purchase <span class="chosen-quantity"></span> packages of <span class="product-quantity"></span>.
       </p>
       <div>Thank You.</div>
     </div>
   </div>
+  <script src="./assets/scripts/bundle.js"></script>
 </body>
 
 </html>
